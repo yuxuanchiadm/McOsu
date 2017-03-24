@@ -758,7 +758,6 @@ void OsuBeatmap::pause(bool quitIfWaiting)
 	if (m_bIsPlaying)
 	{
 		// workaround (+ actual osu behaviour): if we are still m_bIsWaiting, pausing the game is the same as stopping playing
-		// TODO: this also happens if we alt-tab or lose focus
 		if (m_bIsWaiting && quitIfWaiting)
 			stop();
 		else

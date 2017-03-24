@@ -1305,8 +1305,8 @@ void Osu::onFocusLost()
 {
 	if (isInPlayMode() && !getSelectedBeatmap()->isPaused() && osu_pause_on_focus_loss.getBool())
 	{
-		getSelectedBeatmap()->pause(false);
-		m_pauseMenu->setVisible(true);
+		getSelectedBeatmap()->pause();
+		m_pauseMenu->setVisible(getSelectedBeatmap()->isPaused());
 		m_modSelector->setVisible(false);
 	}
 
