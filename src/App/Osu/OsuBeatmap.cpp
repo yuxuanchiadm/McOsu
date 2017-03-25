@@ -1176,7 +1176,7 @@ void OsuBeatmap::playMissSound()
 
 bool OsuBeatmap::isLoading()
 {
-	return !m_music->isAsyncReady();
+	return m_music != NULL && !m_music->isAsyncReady();
 }
 
 bool OsuBeatmap::canDraw()
