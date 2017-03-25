@@ -70,6 +70,7 @@ private:
 	void drawProgressBarVR(Graphics *g, Matrix4 &mvp, OsuVR *vr, float percent, bool waiting);
 	void drawStatistics(Graphics *g, int misses, int bpm, float ar, float cs, float od, int nps, int nd, int ur);
 	void drawTargetHeatmap(Graphics *g, float hitcircleDiameter);
+	void drawScrubbingTimeline(Graphics *g);
 
 	void drawStatisticText(Graphics *g, const UString text);
 
