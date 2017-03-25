@@ -853,7 +853,11 @@ void OsuBeatmap::setPitch(float pitch)
 
 void OsuBeatmap::seekPercent(double percent)
 {
-	if (m_selectedDifficulty == NULL || (!m_bIsPlaying && !m_bIsPaused) || m_music == NULL || m_bFailed)
+	if (m_selectedDifficulty == NULL || m_music == NULL || m_bFailed)
+		return;
+	if (m_bIsWaiting)
+		m_fWaitTime = engine->getTimeReal();
+	if (!m_bIsPlaying && !m_bIsPaused)
 		return;
 
 	m_bWasSeekFrame = true;
@@ -867,7 +871,11 @@ void OsuBeatmap::seekPercent(double percent)
 
 void OsuBeatmap::seekPercentPlayable(double percent)
 {
-	if (m_selectedDifficulty == NULL || (!m_bIsPlaying && !m_bIsPaused) || m_music == NULL || m_bFailed)
+	if (m_selectedDifficulty == NULL || m_music == NULL || m_bFailed)
+		return;
+	if (m_bIsWaiting)
+		m_fWaitTime = engine->getTimeReal();
+	if (!m_bIsPlaying && !m_bIsPaused)
 		return;
 
 	m_bWasSeekFrame = true;
@@ -882,7 +890,11 @@ void OsuBeatmap::seekPercentPlayable(double percent)
 
 void OsuBeatmap::seekMS(unsigned long ms)
 {
-	if (m_selectedDifficulty == NULL || (!m_bIsPlaying && !m_bIsPaused) || m_music == NULL || m_bFailed)
+	if (m_selectedDifficulty == NULL || m_music == NULL || m_bFailed)
+		return;
+	if (m_bIsWaiting)
+		m_fWaitTime = engine->getTimeReal();
+	if (!m_bIsPlaying && !m_bIsPaused)
 		return;
 
 	m_bWasSeekFrame = true;

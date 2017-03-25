@@ -1266,7 +1266,7 @@ void OsuHUD::drawScrubbingTimeline(Graphics *g)
 	g->drawLine(0, cursorPos.y, m_osu->getScreenWidth(), cursorPos.y);
 
 	// current time triangle
-	Vector2 triangleTip = Vector2(m_osu->getScreenWidth()*beatmap->getPercentFinishedPlayable(), cursorPos.y);
+	Vector2 triangleTip = Vector2(beatmap->isWaiting() ? 0.0f : m_osu->getScreenWidth()*beatmap->getPercentFinishedPlayable(), cursorPos.y);
 	g->pushTransform();
 		g->translate(triangleTip.x + 1, triangleTip.y - m_osu->getSkin()->getSeekTriangle()->getHeight()/2.0f + 1);
 		g->setColor(0xff000000);
